@@ -163,6 +163,10 @@ class Libro extends ActiveRecord
     public static function deleteLibro($id)
     {
         $libro = Libro::findOne($id);
+        if (!$libro) {
+            throw new NotFoundHttpException("Libro con ID $id no encontrado.");
+        }
+        
         if ($libro) {
             $libro->delete();
             return true;

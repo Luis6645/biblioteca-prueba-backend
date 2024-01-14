@@ -138,11 +138,7 @@ class LibroController extends BaseController
         try {
             $result = Libro::deleteLibro($id);
 
-            if ($result === null) {
-                throw new NotFoundHttpException("Libro con ID $id no encontrado.");
-            }
-
-            return ['success' => true];
+            return ['success' => $result];
         } catch (BadRequestHttpException $e) {
             throw $e;
         } catch (\Exception $e) {
