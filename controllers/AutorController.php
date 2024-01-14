@@ -43,12 +43,10 @@ class AutorController extends BaseController
 
                 // Agregar información del autor y sus libros a la respuesta
                 $response[] = [
-                    'autor' => [
-                        'id' => $autor->_id,
-                        'nombre' => $autor->nombre,
-                        'fecha_nacimiento' => $autor->fecha_nacimiento,
-                        'nacionalidad' => $autor->nacionalidad,
-                    ],
+                    'id' => $autor->_id,
+                    'nombre' => $autor->nombre,
+                    'fecha_nacimiento' => $autor->fecha_nacimiento,
+                    'nacionalidad' => $autor->nacionalidad,
                     'libros' => $autor->libros,
                 ];
             }
