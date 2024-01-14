@@ -3,6 +3,7 @@
 namespace app\models;
 
 use yii\mongodb\ActiveRecord;
+use yii\web\NotFoundHttpException;
 
 /**
  * Clase Libro
@@ -137,6 +138,11 @@ class Libro extends ActiveRecord
         }
 
         $libro = Libro::findOne($id);
+
+        if (!$libro) {
+            throw new NotFoundHttpException("Autor con ID $id no encontrado.");
+        }
+
         if ($libro) {
             $libro->setAttributes($attributes);
             if ($libro->save()) {

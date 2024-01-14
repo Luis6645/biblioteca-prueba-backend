@@ -3,6 +3,7 @@
 namespace app\models;
 
 use yii\mongodb\ActiveRecord;
+use yii\web\NotFoundHttpException;
 
 /**
  * Clase Autor
@@ -106,6 +107,10 @@ class Autor extends ActiveRecord
     public static function updateAutor($id, $attributes)
     {
         $autor = Autor::findOne($id);
+        
+        if (!$autor) {
+            throw new NotFoundHttpException("Autor con ID $id no encontrado.");
+        }
 
         if ($autor) {
             $autor->setAttributes($attributes);
@@ -129,6 +134,10 @@ class Autor extends ActiveRecord
     public static function deleteAutor($id)
     {
         $autor = Autor::findOne($id);
+
+        if (!$autor) {
+            throw new NotFoundHttpException("Autor con ID $id no encontrado.");
+        }
 
         if ($autor) {
             $autor->delete();
