@@ -37,6 +37,7 @@ class LibroController extends BaseController
         $data = [];
         foreach ($libros as $libro) {
             $data[] = [
+                '_id' => $libro->_id,
                 'titulo' => $libro->titulo,
                 'autor' => $libro->autor ? $libro->autor->nombre : null,
                 'autor_id' => $libro->autor_id,
@@ -68,6 +69,7 @@ class LibroController extends BaseController
 
             // Devolver los datos deseados (por ejemplo, el nombre del autor)
             $data = [
+                '_id' => $libro->_id,
                 'titulo' => $libro->titulo,
                 'autor' => $libro->autor ? $libro->autor->nombre : null,
                 'autor_id' => $libro->autor_id,
