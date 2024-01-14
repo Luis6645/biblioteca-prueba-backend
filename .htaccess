@@ -1,0 +1,7 @@
+RewriteEngine on
+RewriteCond %{SCRIPT_FILENAME} !-d  
+RewriteCond %{SCRIPT_FILENAME} !-f  
+
+ErrorDocument 404 /web/index.php?r=site/error
+
+DirectoryIndex web/index.php index.html site-down.php
